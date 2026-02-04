@@ -1,5 +1,7 @@
 import React from 'react';
 import { Users, Award, Target, Heart, Shield, Clock, CheckCircle, Sparkles, Globe, BookOpen, TrendingUp, Star } from 'lucide-react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const AboutPage = () => {
   const teamMembers = [
@@ -66,8 +68,11 @@ const AboutPage = () => {
   ];
 
   return (
+    <>
+     <Navbar/> 
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans">
-      {/* Hero Section */}
+    
+    {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -322,6 +327,8 @@ const AboutPage = () => {
         </div>
       </section>
     </div>
+    <Footer/>
+    </>
   );
 };
 

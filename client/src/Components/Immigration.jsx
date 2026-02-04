@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronLeft, ChevronRight, Phone, Mail, MapPin, Facebook, Youtube, Instagram, Star, Globe, Users, Award, Calendar, Clock, Shield, CheckCircle, MessageCircle, Zap, Sparkles, User, FileText, TrendingUp, Target, Heart, BookOpen, Briefcase, GraduationCap, Home, Plane, FileCheck, Percent, Globe2, Mail as MailIcon, MessageSquare } from 'lucide-react';
+import { Menu, X, ChevronLeft, ChevronRight, Phone, Mail, MapPin, Facebook, Youtube, Instagram, Star, Globe, Users, Award, Calendar, Clock, Shield, CheckCircle, MessageCircle, Zap, Sparkles, User, FileText, TrendingUp, Target, Heart, BookOpen, Briefcase, GraduationCap, Home, Plane, FileCheck, Percent, Globe2, Mail as MailIcon, MessageSquare, Link } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+import Navbar from './Navbar';
+import Footer from './Footer';
+import { useLocation, useNavigate } from 'react-router-dom';
+import TestimonialsSection from './Testimonials';
+import image1 from "../../images/image1.png";
 
 const SkyBeatImmigration = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +15,7 @@ const SkyBeatImmigration = () => {
   const [currentService, setCurrentService] = useState(0);
   const [currentHero, setCurrentHero] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [formData, setFormData] = useState({
     name: '',
@@ -246,6 +253,7 @@ const SkyBeatImmigration = () => {
     });
   };
 
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -263,71 +271,7 @@ const SkyBeatImmigration = () => {
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-gray-900/90 backdrop-blur-lg shadow-2xl shadow-amber-500/10 border-b border-amber-600/20' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo */}
-            <div className="flex items-center gap-3 group cursor-pointer" data-aos="fade-right">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-lg blur-md opacity-70 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative p-3 bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg border border-amber-600/30">
-                  <Sparkles className="w-8 h-8 text-amber-400" />
-                </div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-300 bg-clip-text text-transparent">
-                  SKY<span className="text-white">BEAT</span>
-                </h1>
-                <p className="text-xs text-amber-300/80 tracking-widest">IMMIGRATION</p>
-              </div>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-1" data-aos="fade-down">
-              {['Home', 'About', 'Services', 'Process', 'Countries', 'Testimonials', 'Blog', 'Contact'].map((item, index) => (
-                <a
-                  key={index}
-                  href={`/${item.toLowerCase()}`}
-                  className="relative px-4 py-2 text-amber-100 hover:text-white transition-colors group"
-                >
-                  <span className="relative z-10">{item}</span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-600/0 via-amber-600/10 to-amber-600/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </a>
-              ))}
-              <button className="ml-4 px-6 py-2.5 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 rounded-lg font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all transform hover:-translate-y-0.5">
-                Book Consultation
-              </button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-lg border border-amber-600/30 hover:border-amber-500/50 transition-all"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X className="w-6 h-6 text-amber-300" /> : <Menu className="w-6 h-6 text-amber-300" />}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && (
-            <div className="lg:hidden bg-gray-900/95 backdrop-blur-lg rounded-xl border border-amber-600/30 mt-2 p-4 space-y-2">
-              {['Home', 'About', 'Services', 'Process', 'Countries', 'Testimonials', 'Blog', 'Contact'].map((item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase()}`}
-                  className="block px-4 py-3 text-amber-100 hover:text-white hover:bg-gradient-to-r from-amber-600/20 to-yellow-600/10 rounded-lg transition-all"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-              <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-lg font-semibold shadow-lg shadow-amber-500/20">
-                Book Consultation
-              </button>
-            </div>
-          )}
-        </div>
-      </nav>
+      <Navbar/>
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -352,7 +296,7 @@ const SkyBeatImmigration = () => {
 
         {/* Hero Content */}
         <div className="relative max-w-7xl mx-auto px-4 text-center z-10" data-aos="zoom-in">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-8">
+          <div className="inline-flex mt-7 items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-8">
             <Star className="w-4 h-4 text-amber-400" />
             <span className="text-amber-300 text-sm">RCIC Certified Immigration Experts</span>
           </div>
@@ -391,9 +335,9 @@ const SkyBeatImmigration = () => {
               <div className="relative rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-600/20 to-yellow-600/20"></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&auto=format&fit=crop&q=80"
+                  src={image1}
                   alt="Harmeet Bamrah - Founder"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[690px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-gray-900 to-transparent p-8">
                   <div className="flex items-center gap-4">
@@ -698,81 +642,7 @@ const SkyBeatImmigration = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonials" className="py-20 relative bg-gradient-to-b from-gray-900 to-gray-800">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16" data-aos="fade-up">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-4">
-              <Star className="w-4 h-4 text-amber-400" />
-              <span className="text-amber-300 text-sm">SUCCESS STORIES</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Golden{' '}
-              <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                Testimonials
-              </span>
-            </h2>
-          </div>
-
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20 p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="text-center" data-aos="fade-right">
-                  <div className="relative inline-block">
-                    <div className="absolute inset-0 bg-gradient-to-r from-amber-500 to-yellow-500 rounded-full blur-lg"></div>
-                    <img
-                      src={testimonials[currentTestimonial].image}
-                      alt={testimonials[currentTestimonial].name}
-                      className="relative w-48 h-48 rounded-full object-cover border-4 border-gray-800"
-                    />
-                    <div className="absolute -bottom-2 -right-2 text-3xl">
-                      {testimonials[currentTestimonial].flag}
-                    </div>
-                  </div>
-                  <h4 className="text-2xl font-bold text-white mt-6">{testimonials[currentTestimonial].name}</h4>
-                  <p className="text-amber-300">{testimonials[currentTestimonial].role}</p>
-                  <div className="flex justify-center gap-1 mt-2">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                    ))}
-                  </div>
-                </div>
-                <div className="relative" data-aos="fade-left">
-                  <div className="text-6xl text-amber-400/20 mb-4">"</div>
-                  <p className="text-xl text-amber-100 leading-relaxed">
-                    {testimonials[currentTestimonial].text}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex justify-center gap-4 mt-8">
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                className="p-3 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
-              >
-                <ChevronLeft className="w-6 h-6 text-amber-300" />
-              </button>
-              <div className="flex gap-2 items-center">
-                {testimonials.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${index === currentTestimonial ? 'w-8 bg-gradient-to-r from-amber-400 to-yellow-400' : 'bg-amber-400/30'}`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
-                className="p-3 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
-              >
-                <ChevronRight className="w-6 h-6 text-amber-300" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+   <TestimonialsSection/>
 
       {/* Blog Section */}
       <section id="blog" className="py-20 relative">
@@ -1038,78 +908,7 @@ const SkyBeatImmigration = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative bg-gradient-to-b from-gray-900 to-gray-950 border-t border-amber-600/20 pt-12 pb-8">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div data-aos="fade-up">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30">
-                  <Sparkles className="w-8 h-8 text-amber-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                    SKYBEAT
-                  </h3>
-                  <p className="text-amber-300/80 text-xs">IMMIGRATION SERVICES</p>
-                </div>
-              </div>
-              <p className="text-amber-100/70 text-sm mb-4">
-                Transforming dreams into realities through expert immigration guidance and unparalleled service excellence.
-              </p>
-              <div className="flex gap-3">
-                {[Facebook, Youtube, Instagram].map((Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="p-2 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-lg border border-amber-600/30 hover:border-amber-500/50 hover:scale-110 transition-all"
-                  >
-                    <Icon className="w-4 h-4 text-amber-300" />
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {[
-              {
-                title: "Quick Links",
-                links: ["Home", "About Us", "Services", "Process", "Countries", "Testimonials", "Blog", "Contact"]
-              },
-              {
-                title: "Services",
-                links: ["Express Entry", "PNP Program", "Study Permit", "Work Permit", "PR Renewal", "Family Sponsorship", "Visitor Visa", "Business Immigration"]
-              },
-              {
-                title: "Contact",
-                links: ["Free Assessment", "Book Consultation", "Emergency Support", "Career Opportunities", "Partner With Us", "FAQ", "Privacy Policy", "Terms of Service"]
-              }
-            ].map((column, idx) => (
-              <div key={idx} data-aos="fade-up" data-aos-delay={idx * 100}>
-                <h4 className="text-lg font-bold text-amber-200 mb-4">{column.title}</h4>
-                <ul className="space-y-2">
-                  {column.links.map((link, i) => (
-                    <li key={i}>
-                      <a
-                        href="#"
-                        className="text-amber-100/70 hover:text-amber-300 hover:pl-2 transition-all text-sm flex items-center gap-2"
-                      >
-                        <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-amber-600/20 pt-8 text-center">
-            <p className="text-amber-100/50 text-sm">
-              © 2024 SkyBeat Immigration Services. All rights reserved. | RCIC Certified | License #R707171
-            </p>
-          </div>
-        </div>
-      </footer>
+    <Footer/>
 
       {/* Floating WhatsApp */}
       <a

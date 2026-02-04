@@ -1,5 +1,7 @@
 import React from 'react';
 import { CheckCircle, Clock, Users, Award, MapPin, Plane, GraduationCap, Briefcase, Home, DollarSign, Globe, FileText, Shield, TrendingUp, Sparkles, Trees } from 'lucide-react';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 const NewZealandVisa = () => {
   const visaCategories = [
@@ -98,6 +100,8 @@ const NewZealandVisa = () => {
   ];
 
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
@@ -347,6 +351,7 @@ const NewZealandVisa = () => {
         </div>
       </section>
     </div>
+    <Footer/></>
   );
 };
 

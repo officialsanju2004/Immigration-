@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, MapPin, MessageSquare, Clock, Calendar, CheckCircle, Sparkles, Send } from 'lucide-react';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -118,7 +120,10 @@ const ContactPage = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans">
+      
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
         <div className="absolute inset-0">
@@ -521,6 +526,8 @@ const ContactPage = () => {
         </div>
       </section>
     </div>
+    <Footer/>
+    </>
   );
 };
 

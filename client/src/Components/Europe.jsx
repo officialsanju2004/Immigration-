@@ -1,5 +1,7 @@
 import React from 'react';
 import { CheckCircle, Clock, Users, Award, MapPin, Plane, GraduationCap, Briefcase, Home, DollarSign, Globe, FileText, Shield, TrendingUp, Sparkles, Flag } from 'lucide-react';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const EuropeVisa = () => {
   const schengenCountries = [
@@ -135,6 +137,8 @@ const EuropeVisa = () => {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white font-sans">
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden">
@@ -469,6 +473,8 @@ const EuropeVisa = () => {
         </div>
       </section>
     </div>
+    <Footer/>
+    </>
   );
 };
 
