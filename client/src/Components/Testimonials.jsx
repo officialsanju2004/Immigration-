@@ -409,7 +409,7 @@ const TestimonialsSection = () => {
                     <video
                       ref={el => videoRefs.current[index] = el}
                       src={video.videoUrl}
-                      className="w-full h-full object-cover"
+                      className="aspect-[9/16] w-full max-w-[360] object-cover"
                       poster={video.thumbnail}
                       onClick={() => handleVideoPlay(index)}
                       onEnded={() => {
@@ -491,38 +491,7 @@ const TestimonialsSection = () => {
                     )}
                   </div>
                  
-                  {/* Testimonial Details */}
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-white mb-1">{video.name}</h3>
-                        <div className="flex items-center gap-2 text-amber-100 text-sm mb-2">
-                          <span>{video.role}</span>
-                          <span className="text-amber-400">•</span>
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-3 h-3" />
-                            {video.location}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1 text-amber-400 text-xs">
-                          <Calendar className="w-3 h-3" />
-                          {video.date}
-                        </div>
-                      </div>
-                      <div className="flex gap-0.5">
-                        {[...Array(video.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                        ))}
-                      </div>
-                    </div>
-                   
-                    <div className="relative">
-                      <div className="text-3xl text-amber-400/20 absolute -top-3 -left-1">"</div>
-                      <p className="text-amber-100 text-sm leading-relaxed pl-4">
-                        {video.quote}
-                      </p>
-                    </div>
-                  </div>
+                
                 </div>
               ))}
             </div>
@@ -557,7 +526,7 @@ const TestimonialsSection = () => {
                 <video
                   ref={el => videoRefs.current[0] = el}
                   src={videoTestimonials[currentIndex].videoUrl}
-                  className="w-full h-full object-cover"
+                  className="aspect-[9/16] w-full max-w-[360] object-cover"
                   poster={videoTestimonials[currentIndex].thumbnail}
                   onClick={() => handleVideoPlay(0)}
                   onEnded={() => setIsPlaying(false)}
@@ -616,40 +585,7 @@ const TestimonialsSection = () => {
                 </div>
               </div>
              
-              {/* Mobile Testimonial Details */}
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-1">
-                      {videoTestimonials[currentIndex].name}
-                    </h3>
-                    <div className="flex items-center gap-2 text-amber-100 text-sm mb-2">
-                      <span>{videoTestimonials[currentIndex].role}</span>
-                      <span className="text-amber-400">•</span>
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-3 h-3" />
-                        {videoTestimonials[currentIndex].location}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1 text-amber-400 text-xs">
-                      <Calendar className="w-3 h-3" />
-                      {videoTestimonials[currentIndex].date}
-                    </div>
-                  </div>
-                  <div className="flex gap-0.5">
-                    {[...Array(videoTestimonials[currentIndex].rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                </div>
-               
-                <div className="relative">
-                  <div className="text-3xl text-amber-400/20 absolute -top-3 -left-1">"</div>
-                  <p className="text-amber-100 text-sm leading-relaxed pl-4">
-                    {videoTestimonials[currentIndex].quote}
-                  </p>
-                </div>
-              </div>
+             
             </div>
 
             {/* Mobile Navigation */}
@@ -693,46 +629,8 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16" data-aos="fade-up">
-          {[
-            { number: "6+", label: "Countries", icon: "🌍" },
-            { number: "98%", label: "Success Rate", icon: "⭐" },
-            { number: "200+", label: "Video Stories", icon: "🎥" },
-            { number: "4.9", label: "Avg Rating", icon: "🏆" }
-          ].map((stat, index) => (
-            <div
-              key={index}
-              className="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-amber-600/20 hover:border-amber-500/50 transition-all"
-            >
-              <div className="text-2xl mb-2">{stat.icon}</div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent mb-2">
-                {stat.number}
-              </div>
-              <div className="text-amber-100/80">{stat.label}</div>
-            </div>
-          ))}
-        </div>
+     
 
-        {/* CTA */}
-        <div className="text-center mt-16" data-aos="fade-up">
-          <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-amber-900/20 via-amber-800/10 to-yellow-800/20 border border-amber-600/20">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Want to Share Your Story?
-            </h3>
-            <p className="text-amber-100/80 mb-6 max-w-2xl mx-auto">
-              Join our community of successful immigrants and inspire others with your journey
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 rounded-xl font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all">
-                Share Your Video
-              </button>
-              <button className="px-8 py-3 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 rounded-xl font-semibold border border-amber-600/30 transition-all">
-                View All Testimonials
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
       </div>
