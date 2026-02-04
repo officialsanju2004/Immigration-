@@ -1,14 +1,52 @@
 
-import React, { useState, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Star, Play, Pause, Volume2, VolumeX, Maximize2, X } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { ChevronLeft, ChevronRight, Star, Play, Pause, Volume2, VolumeX, Maximize2, X, Sparkles, MapPin, Calendar } from 'lucide-react';
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentVideo, setCurrentVideo] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
+   const videoRef = useRef(null);
+  const [active, setActive] = useState(0);
+  const [playing, setPlaying] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const videoRef = useRef(null);
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [activeVideo, setActiveVideo] = useState(0);
+  const videoRefs = useRef([]);
+  const containerRef = useRef(null);
+  const autoScrollRef = useRef(null);
+  const videos = [
+    {
+      name: "Rajesh Patel",
+      role: "Canada PR Holder",
+      video: "https://assets.mixkit.co/videos/preview/mixkit-happy-man-with-arms-spread-on-a-field-34500-large.mp4",
+      thumb: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?w=400",
+      quote: "SkyBeat made my PR journey smooth and stress-free."
+    },
+    {
+      name: "Sneha Verma",
+      role: "Student Visa – Australia",
+      video: "https://assets.mixkit.co/videos/preview/mixkit-woman-talking-about-her-experiences-in-a-park-34503-large.mp4",
+      thumb: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=400",
+      quote: "Best consultancy for student visas. 100% recommended."
+    },
+    {
+      name: "Michael Chen",
+      role: "USA H1B Visa",
+      video: "https://assets.mixkit.co/videos/preview/mixkit-man-talking-about-his-experience-in-a-conference-room-34504-large.mp4",
+      thumb: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400",
+      quote: "Professional service with real results."
+    }
+  ];
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    playing ? videoRef.current.pause() : videoRef.current.play();
+    setPlaying(!playing);
+  };
 
   const testimonials = [
     {
@@ -37,75 +75,173 @@ const TestimonialsSection = () => {
     }
   ];
 
-  const videoTestimonials = [
+    const videoTestimonials = [
     {
+      id: 1,
       name: "Rajesh Patel",
       role: "Canada PR Holder",
       location: "Toronto, Canada",
-      duration: "2:45",
+      date: "March 15, 2024",
+      rating: 5,
       thumbnail: "https://images.unsplash.com/photo-1579546929662-711aa81148cf?w=800&auto=format&fit=crop&q=80",
       videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-happy-man-with-arms-spread-on-a-field-34500-large.mp4",
       quote: "SkyBeat made my Canadian PR process smooth and stress-free."
     },
     {
+      id: 2,
       name: "Sneha Verma",
       role: "Student in Australia",
       location: "Sydney, Australia",
-      duration: "3:20",
+      date: "February 28, 2024",
+      rating: 5,
       thumbnail: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=800&auto=format&fit=crop&q=80",
       videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-talking-about-her-experiences-in-a-park-34503-large.mp4",
       quote: "The best decision was choosing SkyBeat for my Australian student visa."
     },
     {
+      id: 3,
       name: "Michael Chen",
       role: "USA H-1B Visa Holder",
       location: "California, USA",
-      duration: "4:15",
+      date: "January 10, 2024",
+      rating: 4,
       thumbnail: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&auto=format&fit=crop&q=80",
       videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-man-talking-about-his-experience-in-a-conference-room-34504-large.mp4",
       quote: "SkyBeat's expertise got me through the H-1B lottery successfully."
     },
     {
+      id: 4,
       name: "Emma Wilson",
       role: "UK Work Visa Holder",
       location: "London, UK",
-      duration: "2:30",
+      date: "December 5, 2023",
+      rating: 5,
       thumbnail: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=800&auto=format&fit=crop&q=80",
       videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-talking-about-her-success-in-business-34502-large.mp4",
-      quote: "Professional service from start to finish for my UK work visa."
+      quote: "Outstanding service for my UK work visa."
+    },
+    {
+      id: 5,
+      name: "Aarav Singh",
+      role: "New Zealand Resident",
+      location: "Auckland, New Zealand",
+      date: "November 20, 2023",
+      rating: 5,
+      thumbnail: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&auto=format&fit=crop&q=80",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-man-talking-about-his-travel-experiences-34505-large.mp4",
+      quote: "SkyBeat helped me secure New Zealand residency in record time."
+    },
+    {
+      id: 6,
+      name: "Sophie Martin",
+      role: "Europe Blue Card Holder",
+      location: "Berlin, Germany",
+      date: "October 15, 2023",
+      rating: 5,
+      thumbnail: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&auto=format&fit=crop&q=80",
+      videoUrl: "https://assets.mixkit.co/videos/preview/mixkit-woman-talking-about-her-career-34506-large.mp4",
+      quote: "Got my EU Blue Card through SkyBeat."
     }
   ];
 
-  const handleVideoPlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
+  // Get visible videos based on current index
+  const getVisibleVideos = () => {
+    const videos = [];
+    for (let i = 0; i < 3; i++) {
+      const index = (currentIndex + i) % videoTestimonials.length;
+      videos.push(videoTestimonials[index]);
+    }
+    return videos;
+  };
+
+  // Auto scroll every 5 seconds
+  useEffect(() => {
+    autoScrollRef.current = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % videoTestimonials.length);
+      setActiveVideo(0); // Reset active video when scrolling
+      setIsPlaying(false);
+    }, 5000);
+
+    return () => {
+      if (autoScrollRef.current) {
+        clearInterval(autoScrollRef.current);
       }
-      setIsPlaying(!isPlaying);
+    };
+  }, [videoTestimonials.length]);
+
+  const handleVideoPlay = (index) => {
+    if (videoRefs.current[index]) {
+      if (isPlaying && activeVideo === index) {
+        videoRefs.current[index].pause();
+        setIsPlaying(false);
+      } else {
+        // Pause all other videos
+        videoRefs.current.forEach((video, i) => {
+          if (video && i !== index) {
+            video.pause();
+          }
+        });
+       
+        videoRefs.current[index].play();
+        setIsPlaying(true);
+        setActiveVideo(index);
+      }
     }
   };
 
-  const handleVideoMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
+  const handleVideoMute = (index) => {
+    if (videoRefs.current[index]) {
+      videoRefs.current[index].muted = !isMuted[index];
+      const newMuted = [...isMuted];
+      newMuted[index] = !newMuted[index];
+      setIsMuted(newMuted);
     }
   };
 
-  const handleFullscreen = () => {
+  const handleFullscreen = (videoElement) => {
     if (!document.fullscreenElement) {
-      videoRef.current.requestFullscreen().catch(err => {
+      videoElement.requestFullscreen().catch(err => {
         console.log(`Error attempting to enable fullscreen: ${err.message}`);
       });
-      setIsFullscreen(true);
     } else {
       document.exitFullscreen();
-      setIsFullscreen(false);
     }
   };
 
+  const nextSlide = () => {
+    setCurrentIndex(prev => (prev + 1) % videoTestimonials.length);
+    setActiveVideo(0);
+    setIsPlaying(false);
+    resetAutoScroll();
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(prev => (prev - 1 + videoTestimonials.length) % videoTestimonials.length);
+    setActiveVideo(0);
+    setIsPlaying(false);
+    resetAutoScroll();
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+    setActiveVideo(0);
+    setIsPlaying(false);
+    resetAutoScroll();
+  };
+
+  const resetAutoScroll = () => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+    }
+    autoScrollRef.current = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % videoTestimonials.length);
+      setActiveVideo(0);
+      setIsPlaying(false);
+    }, 5000);
+  };
+
+  const visibleVideos = getVisibleVideos();
+  
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
   };
@@ -217,324 +353,392 @@ const TestimonialsSection = () => {
           </div>
         </section>
 
-        {/* Video Testimonials Section */}
-        <section>
-          <div className="text-center mb-16" data-aos="fade-up">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-4">
-              <Play className="w-4 h-4 text-amber-400" />
-              <span className="text-amber-300 text-sm">VIDEO TESTIMONIALS</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Watch Their{' '}
-              <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                Success Stories
-              </span>
-            </h2>
-            <p className="text-xl text-amber-100 max-w-3xl mx-auto">
-              Hear directly from our clients about their immigration journey with SkyBeat
-            </p>
-            <div className="w-32 h-1 bg-gradient-to-r from-amber-500 to-yellow-500 mx-auto mt-8"></div>
+      <section className="py-20 bg-gradient-to-b from-gray-900 to-gray-800 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Section Header */}
+        <div className="text-center mb-12" data-aos="fade-up">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-4">
+            <Sparkles className="w-4 h-4 text-amber-400" />
+            <span className="text-amber-300 text-sm">VIDEO SUCCESS STORIES</span>
           </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            See Their{' '}
+            <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
+              Dreams Come True
+            </span>
+          </h2>
+          <p className="text-xl text-amber-100 max-w-3xl mx-auto">
+            Watch real clients share their immigration success stories
+          </p>
+          <div className="w-32 h-1 bg-gradient-to-r from-amber-500 to-yellow-500 mx-auto mt-8"></div>
+        </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Main Video Player */}
-            <div className="relative group" data-aos="fade-right">
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20">
-                {/* Video Player */}
-                <div className="relative aspect-video">
-                  <video
-                    ref={videoRef}
-                    src={videoTestimonials[currentVideo].videoUrl}
-                    className="w-full h-full object-cover"
-                    poster={videoTestimonials[currentVideo].thumbnail}
-                    onEnded={() => setIsPlaying(false)}
-                  />
-                 
-                  {/* Video Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent"></div>
-                 
-                  {/* Play/Pause Button */}
-                  <button
-                    onClick={handleVideoPlay}
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 bg-gradient-to-br from-amber-600/80 to-yellow-600/80 rounded-full hover:from-amber-500 hover:to-yellow-500 transition-all hover:scale-110"
-                  >
-                    {isPlaying ? (
-                      <Pause className="w-8 h-8 text-white" />
-                    ) : (
-                      <Play className="w-8 h-8 text-white ml-1" />
-                    )}
-                  </button>
+        {/* Desktop: 3 Videos in a Row */}
+        <div className="hidden lg:block">
+          <div className="relative">
+            {/* Navigation Arrows */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 p-4 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all hover:scale-110 z-10"
+            >
+              <ChevronLeft className="w-6 h-6 text-amber-300" />
+            </button>
+           
+            <button
+              onClick={nextSlide}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 p-4 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all hover:scale-110 z-10"
+            >
+              <ChevronRight className="w-6 h-6 text-amber-300" />
+            </button>
 
-                  {/* Video Controls */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-gray-900 to-transparent">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <button
-                          onClick={handleVideoPlay}
-                          className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
-                        >
-                          {isPlaying ? (
-                            <Pause className="w-5 h-5 text-amber-300" />
-                          ) : (
-                            <Play className="w-5 h-5 text-amber-300" />
-                          )}
-                        </button>
-                       
-                        <button
-                          onClick={handleVideoMute}
-                          className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
-                        >
-                          {isMuted ? (
-                            <VolumeX className="w-5 h-5 text-amber-300" />
-                          ) : (
-                            <Volume2 className="w-5 h-5 text-amber-300" />
-                          )}
-                        </button>
-                       
-                        <div className="text-amber-300 font-medium">
-                          {videoTestimonials[currentVideo].duration}
-                        </div>
-                      </div>
-                     
-                      <button
-                        onClick={handleFullscreen}
-                        className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
-                      >
-                        <Maximize2 className="w-5 h-5 text-amber-300" />
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Current Video Info */}
-                  <div className="absolute top-6 left-6">
-                    <div className="px-4 py-2 bg-gradient-to-r from-amber-600/90 to-yellow-600/90 rounded-full text-sm font-semibold">
-                      Now Playing
-                    </div>
-                  </div>
-                </div>
-               
-                {/* Video Details */}
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-white mb-2">
-                        {videoTestimonials[currentVideo].name}
-                      </h3>
-                      <div className="flex items-center gap-4 text-amber-100">
-                        <span>{videoTestimonials[currentVideo].role}</span>
-                        <span className="text-amber-400">•</span>
-                        <span>{videoTestimonials[currentVideo].location}</span>
-                      </div>
-                    </div>
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                  </div>
-                 
-                  <div className="relative">
-                    <div className="text-4xl text-amber-400/20 absolute -top-4 -left-2">"</div>
-                    <p className="text-lg text-amber-100 leading-relaxed pl-6">
-                      {videoTestimonials[currentVideo].quote}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Video Thumbnails List */}
-            <div className="space-y-6" data-aos="fade-left">
-              <h3 className="text-2xl font-bold text-white mb-6">More Success Stories</h3>
-             
-              {videoTestimonials.map((video, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setCurrentVideo(index);
-                    setIsPlaying(false);
-                  }}
-                  className={`w-full group flex items-center gap-4 p-4 rounded-xl transition-all ${
-                    index === currentVideo
-                      ? 'bg-gradient-to-r from-amber-600/20 to-yellow-600/20 border-2 border-amber-500/50'
-                      : 'bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-amber-600/20 hover:border-amber-500/50 hover:scale-[1.02]'
+            {/* 3 Videos Container */}
+            <div className="grid grid-cols-3 gap-8 px-12">
+              {visibleVideos.map((video, index) => (
+                <div
+                  key={`${video.id}-${currentIndex}-${index}`}
+                  className={`group relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 border transition-all duration-500 ${
+                    activeVideo === index
+                      ? 'border-2 border-amber-500/50 scale-105 shadow-2xl shadow-amber-500/20'
+                      : 'border-amber-600/20 hover:border-amber-500/30 hover:scale-[1.02]'
                   }`}
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
                 >
-                  {/* Thumbnail */}
-                  <div className="relative flex-shrink-0">
-                    <div className="relative w-24 h-16 rounded-lg overflow-hidden">
-                      <img
-                        src={video.thumbnail}
-                        alt={video.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-yellow-600/20"></div>
-                     
-                      {/* Play Icon on Hover */}
-                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                        <div className="p-2 bg-gradient-to-br from-amber-600/80 to-yellow-600/80 rounded-full">
-                          <Play className="w-4 h-4 text-white" />
-                        </div>
-                      </div>
-                     
-                      {/* Duration */}
-                      <div className="absolute bottom-1 right-1 px-1.5 py-0.5 bg-gray-900/80 rounded text-xs text-white">
-                        {video.duration}
-                      </div>
-                     
-                      {/* Current Video Indicator */}
-                      {index === currentVideo && (
-                        <div className="absolute top-1 left-1 px-2 py-0.5 bg-gradient-to-r from-amber-600 to-yellow-600 rounded text-xs text-white">
-                          NOW
-                        </div>
+                  {/* Video Container */}
+                  <div className="relative aspect-video">
+                    <video
+                      ref={el => videoRefs.current[index] = el}
+                      src={video.videoUrl}
+                      className="w-full h-full object-cover"
+                      poster={video.thumbnail}
+                      onClick={() => handleVideoPlay(index)}
+                      onEnded={() => {
+                        if (activeVideo === index) setIsPlaying(false);
+                      }}
+                    />
+                   
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent"></div>
+                   
+                    {/* Play Button */}
+                    <button
+                      onClick={() => handleVideoPlay(index)}
+                      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 bg-gradient-to-br from-amber-600/80 to-yellow-600/80 rounded-full hover:from-amber-500 hover:to-yellow-500 transition-all hover:scale-110 opacity-0 group-hover:opacity-100"
+                    >
+                      {isPlaying && activeVideo === index ? (
+                        <Pause className="w-6 h-6 text-white" />
+                      ) : (
+                        <Play className="w-6 h-6 text-white ml-0.5" />
                       )}
-                    </div>
-                  </div>
+                    </button>
 
-                  {/* Video Info */}
-                  <div className="flex-1 text-left">
-                    <div className="flex items-start justify-between mb-1">
-                      <h4 className="font-bold text-white group-hover:text-amber-300 transition-colors">
-                        {video.name}
-                      </h4>
+                    {/* Video Controls */}
+                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleVideoPlay(index);
+                            }}
+                            className="p-2 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-lg border border-amber-600/30 hover:border-amber-500/50 transition-all"
+                          >
+                            {isPlaying && activeVideo === index ? (
+                              <Pause className="w-4 h-4 text-amber-300" />
+                            ) : (
+                              <Play className="w-4 h-4 text-amber-300" />
+                            )}
+                          </button>
+                         
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleVideoMute(index);
+                            }}
+                            className="p-2 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-lg border border-amber-600/30 hover:border-amber-500/50 transition-all"
+                          >
+                            {isMuted[index] ? (
+                              <VolumeX className="w-4 h-4 text-amber-300" />
+                            ) : (
+                              <Volume2 className="w-4 h-4 text-amber-300" />
+                            )}
+                          </button>
+                         
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (videoRefs.current[index]) {
+                                handleFullscreen(videoRefs.current[index]);
+                              }
+                            }}
+                            className="p-2 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-lg border border-amber-600/30 hover:border-amber-500/50 transition-all"
+                          >
+                            <Maximize2 className="w-4 h-4 text-amber-300" />
+                          </button>
+                        </div>
+                       
+                        <div className="text-amber-300 text-sm font-medium">
+                          {video.rating}/5
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Active Video Indicator */}
+                    {activeVideo === index && (
+                      <div className="absolute top-3 left-3 px-3 py-1 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-full text-sm font-semibold animate-pulse">
+                        Playing
+                      </div>
+                    )}
+                  </div>
+                 
+                  {/* Testimonial Details */}
+                  <div className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-white mb-1">{video.name}</h3>
+                        <div className="flex items-center gap-2 text-amber-100 text-sm mb-2">
+                          <span>{video.role}</span>
+                          <span className="text-amber-400">•</span>
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-3 h-3" />
+                            {video.location}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1 text-amber-400 text-xs">
+                          <Calendar className="w-3 h-3" />
+                          {video.date}
+                        </div>
+                      </div>
                       <div className="flex gap-0.5">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3 h-3 text-yellow-400 fill-current" />
+                        {[...Array(video.rating)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
                         ))}
                       </div>
                     </div>
-                    <p className="text-sm text-amber-100">{video.role}</p>
-                    <p className="text-xs text-amber-400 mt-1">{video.location}</p>
-                    <p className="text-sm text-amber-100/80 mt-2 line-clamp-2">
-                      "{video.quote}"
-                    </p>
+                   
+                    <div className="relative">
+                      <div className="text-3xl text-amber-400/20 absolute -top-3 -left-1">"</div>
+                      <p className="text-amber-100 text-sm leading-relaxed pl-4">
+                        {video.quote}
+                      </p>
+                    </div>
                   </div>
-                </button>
+                </div>
               ))}
+            </div>
 
-              {/* Video Navigation */}
-              <div className="flex justify-center gap-4 pt-4">
+            {/* Progress Dots */}
+            <div className="flex justify-center gap-3 mt-12">
+              {videoTestimonials.map((_, index) => (
                 <button
-                  onClick={prevVideo}
-                  className="p-3 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all hover:scale-110"
-                >
-                  <ChevronLeft className="w-5 h-5 text-amber-300" />
-                </button>
-               
-                <div className="flex gap-2 items-center">
-                  {videoTestimonials.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => {
-                        setCurrentVideo(index);
-                        setIsPlaying(false);
-                      }}
-                      className={`h-2 rounded-full transition-all ${
-                        index === currentVideo
-                          ? 'w-6 bg-gradient-to-r from-amber-400 to-yellow-400'
-                          : 'w-2 bg-amber-400/30 hover:bg-amber-400/50'
-                      }`}
-                    />
-                  ))}
-                </div>
-               
-                <button
-                  onClick={nextVideo}
-                  className="p-3 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all hover:scale-110"
-                >
-                  <ChevronRight className="w-5 h-5 text-amber-300" />
-                </button>
-              </div>
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'w-8 bg-gradient-to-r from-amber-400 to-yellow-400'
+                      : 'w-2 bg-amber-400/30 hover:bg-amber-400/50'
+                  }`}
+                />
+              ))}
             </div>
-          </div>
-
-          {/* Video Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16" data-aos="fade-up">
-            {[
-              { number: "500+", label: "Video Testimonials" },
-              { number: "95%", label: "Satisfaction Rate" },
-              { number: "4.9/5", label: "Average Rating" },
-              { number: "50K+", label: "Total Views" }
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-amber-600/20"
-              >
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-amber-100/80">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="text-center mt-16" data-aos="fade-up">
-            <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-amber-900/20 via-amber-800/10 to-yellow-800/20 border border-amber-600/20">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Share Your Success Story
-              </h3>
-              <p className="text-amber-100/80 mb-6 max-w-2xl mx-auto">
-                Join hundreds of clients who have shared their immigration journey. Your story could inspire others!
-              </p>
-              <button className="px-8 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 rounded-xl font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all">
-                Submit Your Video Testimonial
-              </button>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* Fullscreen Video Modal */}
-      {isFullscreen && (
-        <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
-          <div className="relative w-full h-full">
-            <video
-              ref={videoRef}
-              src={videoTestimonials[currentVideo].videoUrl}
-              className="w-full h-full object-contain"
-              autoPlay={isPlaying}
-              muted={isMuted}
-            />
-           
-            {/* Fullscreen Controls */}
-            <div className="absolute top-4 right-4 flex gap-3">
-              <button
-                onClick={handleVideoMute}
-                className="p-3 bg-gray-900/80 rounded-full hover:bg-gray-800 transition-all"
-              >
-                {isMuted ? (
-                  <VolumeX className="w-6 h-6 text-white" />
-                ) : (
-                  <Volume2 className="w-6 h-6 text-white" />
-                )}
-              </button>
-             
-              <button
-                onClick={() => {
-                  handleFullscreen();
-                  setIsFullscreen(false);
-                }}
-                className="p-3 bg-gray-900/80 rounded-full hover:bg-gray-800 transition-all"
-              >
-                <X className="w-6 h-6 text-white" />
-              </button>
-            </div>
-
-            {/* Fullscreen Play/Pause */}
-            <button
-              onClick={handleVideoPlay}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-8 bg-gradient-to-br from-amber-600/80 to-yellow-600/80 rounded-full hover:from-amber-500 hover:to-yellow-500 transition-all"
-            >
-              {isPlaying ? (
-                <Pause className="w-12 h-12 text-white" />
-              ) : (
-                <Play className="w-12 h-12 text-white ml-1" />
-              )}
-            </button>
           </div>
         </div>
-      )}
+
+        {/* Mobile: Single Video Carousel */}
+        <div className="lg:hidden">
+          <div className="relative">
+            {/* Single Video Container */}
+            <div
+              ref={containerRef}
+              className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20"
+              data-aos="zoom-in"
+            >
+              <div className="relative aspect-video">
+                <video
+                  ref={el => videoRefs.current[0] = el}
+                  src={videoTestimonials[currentIndex].videoUrl}
+                  className="w-full h-full object-cover"
+                  poster={videoTestimonials[currentIndex].thumbnail}
+                  onClick={() => handleVideoPlay(0)}
+                  onEnded={() => setIsPlaying(false)}
+                />
+               
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent"></div>
+               
+                <button
+                  onClick={() => handleVideoPlay(0)}
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 p-6 bg-gradient-to-br from-amber-600/80 to-yellow-600/80 rounded-full hover:from-amber-500 hover:to-yellow-500 transition-all hover:scale-110"
+                >
+                  {isPlaying ? (
+                    <Pause className="w-8 h-8 text-white" />
+                  ) : (
+                    <Play className="w-8 h-8 text-white ml-0.5" />
+                  )}
+                </button>
+
+                {/* Mobile Video Controls */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-gray-900 to-transparent">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleVideoPlay(0);
+                        }}
+                        className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
+                      >
+                        {isPlaying ? (
+                          <Pause className="w-5 h-5 text-amber-300" />
+                        ) : (
+                          <Play className="w-5 h-5 text-amber-300" />
+                        )}
+                      </button>
+                     
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleVideoMute(0);
+                        }}
+                        className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
+                      >
+                        {isMuted[0] ? (
+                          <VolumeX className="w-5 h-5 text-amber-300" />
+                        ) : (
+                          <Volume2 className="w-5 h-5 text-amber-300" />
+                        )}
+                      </button>
+                    </div>
+                   
+                    <div className="text-amber-300 font-medium">
+                      {currentIndex + 1}/{videoTestimonials.length}
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+              {/* Mobile Testimonial Details */}
+              <div className="p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-white mb-1">
+                      {videoTestimonials[currentIndex].name}
+                    </h3>
+                    <div className="flex items-center gap-2 text-amber-100 text-sm mb-2">
+                      <span>{videoTestimonials[currentIndex].role}</span>
+                      <span className="text-amber-400">•</span>
+                      <span className="flex items-center gap-1">
+                        <MapPin className="w-3 h-3" />
+                        {videoTestimonials[currentIndex].location}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1 text-amber-400 text-xs">
+                      <Calendar className="w-3 h-3" />
+                      {videoTestimonials[currentIndex].date}
+                    </div>
+                  </div>
+                  <div className="flex gap-0.5">
+                    {[...Array(videoTestimonials[currentIndex].rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                    ))}
+                  </div>
+                </div>
+               
+                <div className="relative">
+                  <div className="text-3xl text-amber-400/20 absolute -top-3 -left-1">"</div>
+                  <p className="text-amber-100 text-sm leading-relaxed pl-4">
+                    {videoTestimonials[currentIndex].quote}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="flex justify-center gap-4 mt-8">
+              <button
+                onClick={prevSlide}
+                className="p-3 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
+              >
+                <ChevronLeft className="w-5 h-5 text-amber-300" />
+              </button>
+             
+              <div className="flex gap-2 items-center">
+                {videoTestimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToSlide(index)}
+                    className={`h-2 rounded-full transition-all ${
+                      index === currentIndex
+                        ? 'w-6 bg-gradient-to-r from-amber-400 to-yellow-400'
+                        : 'w-2 bg-amber-400/30 hover:bg-amber-400/50'
+                    }`}
+                  />
+                ))}
+              </div>
+             
+              <button
+                onClick={nextSlide}
+                className="p-3 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 rounded-xl border border-amber-600/30 hover:border-amber-500/50 transition-all"
+              >
+                <ChevronRight className="w-5 h-5 text-amber-300" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Auto Scroll Indicator */}
+        <div className="text-center mt-8">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-600/10 to-yellow-600/10 rounded-full">
+            <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
+            <span className="text-amber-300 text-sm">Auto-scrolling every 5 seconds</span>
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16" data-aos="fade-up">
+          {[
+            { number: "6+", label: "Countries", icon: "🌍" },
+            { number: "98%", label: "Success Rate", icon: "⭐" },
+            { number: "200+", label: "Video Stories", icon: "🎥" },
+            { number: "4.9", label: "Avg Rating", icon: "🏆" }
+          ].map((stat, index) => (
+            <div
+              key={index}
+              className="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-amber-600/20 hover:border-amber-500/50 transition-all"
+            >
+              <div className="text-2xl mb-2">{stat.icon}</div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent mb-2">
+                {stat.number}
+              </div>
+              <div className="text-amber-100/80">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center mt-16" data-aos="fade-up">
+          <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-amber-900/20 via-amber-800/10 to-yellow-800/20 border border-amber-600/20">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Want to Share Your Story?
+            </h3>
+            <p className="text-amber-100/80 mb-6 max-w-2xl mx-auto">
+              Join our community of successful immigrants and inspire others with your journey
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-8 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 rounded-xl font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all">
+                Share Your Video
+              </button>
+              <button className="px-8 py-3 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 rounded-xl font-semibold border border-amber-600/30 transition-all">
+                View All Testimonials
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      </div>
+
+     
+     
     </div>
   );
 };

@@ -25,7 +25,40 @@ export default function Navbar() {
     navigate(path);
     setIsServicesOpen(false);
     setIsMenuOpen(false);
-  };
+  }; // Initialize AOS
+    useEffect(() => {
+      AOS.init({
+        duration: 1200,
+        once: true,
+        offset: 100,
+        easing: 'ease-out-cubic',
+      });
+    }, []);
+  
+    // Handle mouse movement for parallax effects
+    useEffect(() => {
+      const handleMouseMove = (e) => {
+        setMousePosition({
+          x: (e.clientX - window.innerWidth / 2) * 0.01,
+          y: (e.clientY - window.innerHeight / 2) * 0.01
+        });
+      };
+      window.addEventListener('mousemove', handleMouseMove);
+      return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+  
+    // Handle scroll for navbar color change
+    useEffect(() => {
+      const handleScroll = () => {
+        if (window.scrollY > 50) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
   return (
      <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-gray-900/90 backdrop-blur-lg shadow-2xl shadow-amber-500/10 border-b border-amber-600/20' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4">
