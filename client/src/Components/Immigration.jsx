@@ -1078,37 +1078,69 @@ const SkyBeatImmigration = () => {
       <Footer />
 
       {/* Floating WhatsApp - Responsive positioning */}
-      <a
-        href="https://wa.me/14169973031"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group"
-        data-aos="fade-left"
-      >
-        <div className="relative">
-          <div className="absolute inset-0 bg-green-500 rounded-full blur-md sm:blur-lg group-hover:blur-xl transition-all"></div>
-          <div className="relative p-3 sm:p-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full shadow-xl sm:shadow-2xl shadow-green-500/30 group-hover:shadow-green-500/50 transition-all group-hover:scale-110">
-            <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
-          </div>
-          <div className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-full animate-pulse">
-            Live
-          </div>
-        </div>
-      </a>
+      {/* Floating WhatsApp */}
 
-      {/* Scroll to Top - Responsive positioning */}
-      <button
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 group"
-        data-aos="fade-right"
-      >
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-full blur-md sm:blur-lg group-hover:blur-xl transition-all"></div>
-          <div className="relative p-3 sm:p-4 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-full shadow-xl sm:shadow-2xl shadow-amber-500/30 group-hover:shadow-amber-500/50 transition-all group-hover:scale-110">
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white rotate-90" />
-          </div>
-        </div>
-      </button>
+<a
+
+    href="https://wa.me/14169973031"
+
+    target="_blank"
+
+    rel="noopener noreferrer"
+
+    className="fixed bottom-6 right-6 z-50 group"
+
+    data-aos="fade-left"
+
+  >
+
+    <div className="relative">
+
+      <div className="absolute inset-0 bg-green-500 rounded-full blur-lg group-hover:blur-xl transition-all"></div>
+
+      <div className="relative p-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full shadow-2xl shadow-green-500/30 group-hover:shadow-green-500/50 transition-all group-hover:scale-110">
+
+        <MessageCircle className="w-6 h-6 text-white" />
+
+      </div>
+
+      <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+
+        Live
+
+      </div>
+
+    </div>
+
+  </a>
+
+
+
+  {/* Scroll to Top */}
+
+  <button
+
+    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+
+    className="fixed bottom-6 left-6 z-50 group"
+
+    data-aos="fade-right"
+
+  >
+
+    <div className="relative">
+
+      <div className="absolute inset-0 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-full blur-lg group-hover:blur-xl transition-all"></div>
+
+      <div className="relative p-4 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-full shadow-2xl shadow-amber-500/30 group-hover:shadow-amber-500/50 transition-all group-hover:scale-110">
+
+        <ChevronLeft className="w-6 h-6 text-white rotate-90" />
+
+      </div>
+
+    </div>
+
+  </button>
     </div>
   );
 };
