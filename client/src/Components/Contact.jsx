@@ -17,28 +17,20 @@ const ContactPage = () => {
 
   const contactOffices = [
     {
-      location: "Canada",
-      address: "42 Regan Road, Unit-7, Brampton, ON, Canada, L7A 1A8",
-      phone: "+1 (416) 997-3031",
-      email: "canada@skybeatimmigration.com",
+      location: "Australia Branch (by Appointment Only)",
+      address: "2/80 Montana Cct,Logan Reserve,QLD - 4133,Australia",
+      phone: "+61 412 141 111",
+      email: "enquiries@assitvisaandmigration.com",
       image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&auto=format&fit=crop&q=80",
-      hours: "Mon-Fri: 9:00 AM - 7:00 PM EST"
+      hours: "Mon-Fri: 9:00 AM - 5:00 PM Sat-Sun:By Appointment Only"
     },
     {
-      location: "India",
-      address: "SCO 86, 2nd Floor City Center Market Near Bus Stand, Amritsar, Punjab, India",
-      phone: "+91 90026-40026",
-      email: "india@skybeatimmigration.com",
+      location: "India Branch (by walk-in)",
+      address: "SCO 103,3rd Floor,District Shopping Complex,B Block,Ranjit Avenue,Amritsar,Punjab ,India",
+      phone: "+91 92169 50100",
+      email: "info@assistvisaandmigration.com",
       image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&auto=format&fit=crop&q=80",
-      hours: "Mon-Sat: 10:00 AM - 7:00 PM IST"
-    },
-    {
-      location: "Virtual Office",
-      address: "Available Worldwide via Online Consultations",
-      phone: "Video Call Appointments",
-      email: "info@skybeatimmigration.com",
-      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop&q=80",
-      hours: "24/7 Online Support Available"
+      hours: ""
     }
   ];
 
@@ -46,14 +38,14 @@ const ContactPage = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Call Us",
-      details: ["Canada: +1 (416) 997-3031", "India: +91 90026-40026", "Emergency: +1 (877) 997-3031"],
+      details: ["Australia: +61 412 141 111", "India: +91 92169 50100"],
       action: "Call Now",
       color: "from-green-600 to-emerald-600"
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email Us",
-      details: ["General: info@skybeatimmigration.com", "Support: support@skybeatimmigration.com", "Careers: careers@skybeatimmigration.com"],
+      details: ["Australia: enquiries@assitvisaandmigration.com", "India: info@assistvisaandmigration.com"],
       action: "Send Email",
       color: "from-blue-600 to-cyan-600"
     },
@@ -186,7 +178,7 @@ const ContactPage = () => {
       {/* Main Contact Section */}
       <section className="py-20 relative bg-gradient-to-b from-gray-800 to-gray-900">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20">
@@ -204,7 +196,7 @@ const ContactPage = () => {
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-4">Message Sent Successfully!</h3>
                     <p className="text-amber-100/80 mb-6">
-                      Thank you for contacting SkyBeat Immigration. Our team will get back to you within 24 hours.
+                      Thank you for contacting Assist Visa and Migration. Our team will get back to you within 24 hours.
                     </p>
                     <button
                       onClick={() => setFormSubmitted(false)}
@@ -324,70 +316,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              {/* Emergency Contact */}
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-red-900/20 to-red-800/10 border border-red-600/30">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-red-600/20 to-red-500/20 rounded-xl">
-                    <Phone className="w-6 h-6 text-red-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">Emergency Support</h3>
-                </div>
-                <p className="text-amber-100/70 mb-4">Urgent immigration matters require immediate attention</p>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-white mb-2">+1 (877) 997-3031</div>
-                  <p className="text-amber-100/70 text-sm">24/7 Emergency Helpline</p>
-                </div>
-              </div>
-
-              {/* Response Time */}
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl">
-                    <Clock className="w-6 h-6 text-amber-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">Response Time</h3>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-amber-100">Email Response</span>
-                    <span className="text-amber-300 font-semibold">Within 24 Hours</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-amber-100">Phone Response</span>
-                    <span className="text-amber-300 font-semibold">Within 2 Hours</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-amber-100">WhatsApp</span>
-                    <span className="text-amber-300 font-semibold">Instant</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Why Contact Us */}
-              <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl">
-                    <Sparkles className="w-6 h-6 text-amber-400" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white">Why Contact Us</h3>
-                </div>
-                <ul className="space-y-3">
-                  {[
-                    "Free Initial Assessment",
-                    "Expert RCIC Consultation",
-                    "Personalized Strategy",
-                    "No Obligation Quote"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-center gap-3 text-amber-100">
-                      <CheckCircle className="w-4 h-4 text-amber-400" />
-                      <span className="text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
@@ -408,7 +337,7 @@ const ContactPage = () => {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {contactOffices.map((office, index) => (
               <div
                 key={index}
@@ -500,31 +429,8 @@ const ContactPage = () => {
         </div>
       </section>
 
-      {/* Quick Contact CTA */}
-      <section className="py-20 relative">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="p-12 rounded-2xl bg-gradient-to-br from-amber-900/30 via-amber-800/20 to-yellow-800/30 border border-amber-600/20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Need{' '}
-              <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                Immediate Assistance?
-              </span>
-            </h2>
-            <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto">
-              Call our emergency helpline for urgent immigration matters requiring immediate attention.
-            </p>
-            <div className="inline-flex items-center gap-4">
-              <div className="p-4 bg-gradient-to-br from-red-600/20 to-red-500/20 rounded-xl">
-                <Phone className="w-8 h-8 text-red-400" />
-              </div>
-              <div className="text-left">
-                <div className="text-3xl font-bold text-white">+1 (877) 997-3031</div>
-                <p className="text-amber-100/70">24/7 Emergency Immigration Support</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     
+      
     </div>
     <Footer/>
     </>

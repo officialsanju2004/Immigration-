@@ -36,7 +36,7 @@ const AboutPage = () => {
   ];
 
   const milestones = [
-    { year: "2008", title: "Founded SkyBeat Immigration", description: "Started with a vision to provide ethical immigration services" },
+    { year: "2008", title: "Founded Assist Visa and Migration", description: "Started with a vision to provide ethical immigration services" },
     { year: "2012", title: "RCIC Certification", description: "Obtained official RCIC license from CICC" },
     { year: "2015", title: "1000+ Clients Served", description: "Milestone achievement in client success stories" },
     { year: "2018", title: "International Expansion", description: "Opened offices in Canada and India" },

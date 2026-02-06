@@ -34,7 +34,7 @@ export default function Navbar() {
         easing: 'ease-out-cubic',
       });
     }, []);
-  
+ 
     // Handle mouse movement for parallax effects
     useEffect(() => {
       const handleMouseMove = (e) => {
@@ -46,7 +46,7 @@ export default function Navbar() {
       window.addEventListener('mousemove', handleMouseMove);
       return () => window.removeEventListener('mousemove', handleMouseMove);
     }, []);
-  
+ 
     // Handle scroll for navbar color change
     useEffect(() => {
       const handleScroll = () => {
@@ -63,7 +63,7 @@ export default function Navbar() {
      <nav className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-gray-900/90 backdrop-blur-lg shadow-2xl shadow-amber-500/10 border-b border-amber-600/20' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-           
+          
              <div className="flex items-center ">
                 <img
                   src={logo}
@@ -71,12 +71,12 @@ export default function Navbar() {
                   className="object-cover h-20 w-40 sm:h-20 sm:w-40  lg:h-25 lg:w-43"
                 />
                 </div>
-              
+             
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center gap-3" >
-            
+           
                 <a
-                 
+                
                   href={`/`}
                   className="relative px-4 py-2 text-amber-100 hover:text-white transition-colors group"
                 >
@@ -95,7 +95,7 @@ export default function Navbar() {
                   Services
                   <FaChevronDown className={`ml-2 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
-                
+               
                 <AnimatePresence>
                   {isServicesOpen && (
                     <motion.div
@@ -119,7 +119,7 @@ export default function Navbar() {
                 </AnimatePresence>
               </div>
                 <a
-                 
+                
                   href={`/about`}
                   className="relative px-4 py-2 text-amber-100 hover:text-white transition-colors group"
                 >
@@ -127,7 +127,7 @@ export default function Navbar() {
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-600/0 via-amber-600/10 to-amber-600/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </a>
                 <a
-                 
+                
                   href={`/contact`}
                   className="relative px-4 py-2 text-amber-100 hover:text-white transition-colors group"
                 >
@@ -135,7 +135,7 @@ export default function Navbar() {
                   <div className="absolute inset-0 bg-gradient-to-r from-amber-600/0 via-amber-600/10 to-amber-600/0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 </a>
 
-          
+         
               <button className="ml-4 px-6 py-2.5 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 rounded-lg font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all transform hover:-translate-y-0.5">
                 Book Consultation
               </button>
@@ -153,9 +153,9 @@ export default function Navbar() {
           {/* Mobile Menu */}
           {isMenuOpen && (
             <div className="lg:hidden bg-gray-900/95 backdrop-blur-lg rounded-xl border border-amber-600/30 mt-2 p-4 space-y-2">
-             
+            
                 <a
-                 
+                
                   href={`/`}
                   className="block px-4 py-3 text-amber-100 hover:text-white hover:bg-gradient-to-r from-amber-600/20 to-yellow-600/10 rounded-lg transition-all"
                   onClick={() => setIsMenuOpen(false)}
@@ -170,7 +170,7 @@ export default function Navbar() {
                     <span>Services</span>
                     <FaChevronDown className={`transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
-                  
+                 
                   <AnimatePresence>
                     {isServicesOpen && (
                       <motion.div
@@ -195,7 +195,7 @@ export default function Navbar() {
                   </AnimatePresence>
                 </div>
                 <a
-                 
+                
                   href={`/about`}
                   className="block px-4 py-3 text-amber-100 hover:text-white hover:bg-gradient-to-r from-amber-600/20 to-yellow-600/10 rounded-lg transition-all"
                   onClick={() => setIsMenuOpen(false)}
@@ -203,14 +203,14 @@ export default function Navbar() {
                  About Us
                 </a>
                 <a
-                 
+                
                   href={`/contact`}
                   className="block px-4 py-3 text-amber-100 hover:text-white hover:bg-gradient-to-r from-amber-600/20 to-yellow-600/10 rounded-lg transition-all"
                   onClick={() => setIsMenuOpen(false)}
                 >
                  Contact Us
                 </a>
-             
+            
               <button className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-lg font-semibold shadow-lg shadow-amber-500/20">
                 Book Consultation
               </button>
@@ -220,5 +220,3 @@ export default function Navbar() {
       </nav>
   )
 }
-
-

@@ -46,7 +46,7 @@ import 'aos/dist/aos.css';
               },
               {
                 title: "Contact",
-                links: ["Address - XYZ", "Call Us- +1(209)395-8481", "Email Us- xyz@gmail.com"],
+                links: ["Australian Address - 2/80 Montana Cct,Logan Reserve,QLD - 4133,Australia", "Australian Number- +61 412 141 111", "Australian Email - enquiries@assitvisaandmigration.com,Indian Address - SCO 103,3rd Floor,District Shopping Complex,B Block,Ranjit Avenue,Amritsar,Punjab ,India","Indian Number - +91 92169 50100", "Indian Email - info@assistvisaandmigration.com"],
                 path:["/","/","/","/","/","/"]
               }
             ].map((column, idx) => (
@@ -82,15 +82,15 @@ flex flex-col items-center gap-2 text-[#F2E9D8]">
   ">
     <span>© {new Date().getFullYear()}</span>
     <span
-      onClick={() => window.location.href = 'https://northstarautologistics.com'}
+      onClick={() => window.location.href = 'https://assistvisaandmigration.com'}
       className="cursor-pointer text-[#B23A2F] font-semibold"
     >
-     xyz.com
+     assistvisaandmigration.com
     </span>
   </div>
 
   {/* LINE 2 */}
-  <div className="
+  {/* <div className="
     flex items-center justify-center gap-1
     text-xs md:text-base
     text-center
@@ -102,7 +102,7 @@ flex flex-col items-center gap-2 text-[#F2E9D8]">
     >
       GROWTH FLOW MEDIA
     </span>
-  </div>
+  </div> */}
 
 </div>
         </div>

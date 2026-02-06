@@ -8,6 +8,12 @@ import Footer from './Footer';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TestimonialsSection from './Testimonials';
 import image1 from "../../images/image1.png";
+import image2 from "../../images/image2.jpg";
+
+import image3 from "../../images/image3.jpg";
+import image4 from "../../images/image4.png";
+
+
 
 const SkyBeatImmigration = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -144,7 +150,7 @@ const SkyBeatImmigration = () => {
       name: "Aman Padam",
       role: "Permanent Resident",
       rating: 5,
-      text: "SkyBeat's golden service made my Canadian dream a reality. The personalized guidance was worth every moment.",
+      text: "Assist Visa and Migration golden service made my Canadian dream a reality. The personalized guidance was worth every moment.",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80",
       flag: "🇺🇸"
     },
@@ -152,7 +158,7 @@ const SkyBeatImmigration = () => {
       name: "Priya Sharma",
       role: "International Student",
       rating: 5,
-      text: "From admission to arrival, SkyBeat's golden touch made my study journey seamless and successful.",
+      text: "From admission to arrival, Assist Visa and Migration golden touch made my study journey seamless and successful.",
       image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&auto=format&fit=crop&q=80",
       flag: "🇬🇧"
     }
@@ -170,7 +176,7 @@ const SkyBeatImmigration = () => {
     {
       date: { day: "20", month: "JUN" },
       title: "Canada's Express Entry: The Golden Pathway",
-      author: "SkyBeat Experts",
+      author: "Assist Visa and Migration Experts",
       category: "Strategy Guide",
       image: "https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=800&auto=format&fit=crop&q=80",
       readTime: "7 min"
@@ -186,12 +192,12 @@ const SkyBeatImmigration = () => {
   ];
 
   const countries = [
-    { name: "Canada", image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&auto=format&fit=crop&q=80", flag: "🇨🇦", visas: ["Express Entry", "PNP", "Study"],link:"/can"},
-    { name: "United States", image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800&auto=format&fit=crop&q=80", flag: "🇺🇸", visas: ["H1B", "L1", "EB"] ,link:"/usa"},
-    { name: "Australia", image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&auto=format&fit=crop&q=80", flag: "🇦🇺", visas: ["Skilled", "Student", "Business"],link:"/aus" },
-    { name: "United Kingdom", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&auto=format&fit=crop&q=80", flag: "🇬🇧", visas: ["Tier 2", "Student", "Innovator"],link:"/uk" },
-    { name: "New Zealand", image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&auto=format&fit=crop&q=80", flag: "🇳🇿", visas: ["Skilled Migrant", "Student", "Partner"],link:"/new" },
-    { name: "Europe", image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&auto=format&fit=crop&q=80", flag: "🇪🇺", visas: ["Blue Card", "Student", "Business"],link:"/eu" }
+    { name: "Canada", image: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&auto=format&fit=crop&q=80", flag: "🇨🇦", visas: ["Express Entry", "PNP", "Study"], link: "/can" },
+    { name: "United States", image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?w=800&auto=format&fit=crop&q=80", flag: "🇺🇸", visas: ["H1B", "L1", "EB"], link: "/usa" },
+    { name: "Australia", image: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&auto=format&fit=crop&q=80", flag: "🇦🇺", visas: ["Skilled", "Student", "Business"], link: "/aus" },
+    { name: "United Kingdom", image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&auto=format&fit=crop&q=80", flag: "🇬🇧", visas: ["Tier 2", "Student", "Innovator"], link: "/uk" },
+    { name: "New Zealand", image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?w=800&auto=format&fit=crop&q=80", flag: "🇳🇿", visas: ["Skilled Migrant", "Student", "Partner"], link: "/new" },
+    { name: "Europe", image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&auto=format&fit=crop&q=80", flag: "🇪🇺", visas: ["Blue Card", "Student", "Business"], link: "/eu" }
   ];
 
   const features = [
@@ -271,7 +277,7 @@ const SkyBeatImmigration = () => {
       </div>
 
       {/* Navigation */}
-      <Navbar/>
+      <Navbar />
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
@@ -300,7 +306,7 @@ const SkyBeatImmigration = () => {
             <Star className="w-4 h-4 text-amber-400" />
             <span className="text-amber-300 text-sm">RCIC Certified Immigration Experts</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight">
             <span className="bg-gradient-to-r from-amber-300 via-yellow-300 to-amber-300 bg-clip-text text-transparent">
               Golden Pathways
@@ -308,7 +314,7 @@ const SkyBeatImmigration = () => {
             <br />
             <span className="text-white">To Your Dreams</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-12 leading-relaxed">
             Transforming immigration dreams into realities with premium expertise and unparalleled success rates
           </p>
@@ -334,7 +340,7 @@ const SkyBeatImmigration = () => {
             <div className="relative" data-aos="fade-right">
               <div className="relative rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-600/20 to-yellow-600/20"></div>
-                <img 
+                <img
                   src={image1}
                   alt="Harmeet Bamrah - Founder"
                   className="w-full h-[690px] object-cover"
@@ -352,13 +358,13 @@ const SkyBeatImmigration = () => {
                 </div>
               </div>
             </div>
-            
+
             <div data-aos="fade-left">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-6">
                 <User className="w-4 h-4 text-amber-400" />
                 <span className="text-amber-300 text-sm">MEET OUR FOUNDER</span>
               </div>
-              
+
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
                   Harmeet Bamrah
@@ -366,10 +372,10 @@ const SkyBeatImmigration = () => {
                 <br />
                 Your Trusted Immigration Guide
               </h2>
-              
+
               <div className="space-y-4 text-amber-100/90 mb-8">
                 <p className="text-lg leading-relaxed">
-                  With over 15 years of experience in Canadian immigration law, I founded SkyBeat Immigration with a single mission: to transform dreams into realities.
+                  With over 15 years of experience in Canadian immigration law, I founded Assist Visa and Migration with a single mission: to transform dreams into realities.
                 </p>
                 <p className="text-lg leading-relaxed">
                   As a licensed RCIC consultant, I combine legal expertise with compassionate guidance to navigate the complex immigration landscape.
@@ -378,7 +384,7 @@ const SkyBeatImmigration = () => {
                   My approach is simple: treat every client's dream as if it were my own, providing personalized strategies that deliver exceptional results.
                 </p>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {successMetrics.map((metric, index) => (
                   <div key={index} className="text-center p-4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl border border-amber-600/20">
@@ -392,7 +398,7 @@ const SkyBeatImmigration = () => {
                   </div>
                 ))}
               </div>
-              
+
               <button className="px-8 py-3 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 rounded-xl font-semibold shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 transition-all">
                 Schedule Consultation
               </button>
@@ -424,7 +430,7 @@ const SkyBeatImmigration = () => {
           <div className="relative">
             {/* Timeline Connector */}
             <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-600 via-yellow-600 to-amber-600 transform -translate-x-1/2"></div>
-            
+
             <div className="space-y-12">
               {processSteps.map((step, index) => (
                 <div
@@ -536,7 +542,7 @@ const SkyBeatImmigration = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               The{' '}
               <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                SkyBeat Advantage
+                Assist Visa and Migration Advantage
               </span>
             </h2>
           </div>
@@ -641,69 +647,258 @@ const SkyBeatImmigration = () => {
           </div>
         </div>
       </section>
+      {/* Accreditation Section */}
+      <section className="py-20 relative bg-gradient-to-b from-gray-800 to-gray-900">
+       
 
-   <TestimonialsSection/>
+      </section>
+      <section className="py-20 relative bg-gradient-to-b from-gray-900 to-gray-800">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16" data-aos="fade-up">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-4">
+              <Award className="w-4 h-4 text-amber-400" />
+              <span className="text-amber-300 text-sm">FULLY ACCREDITED</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Professional{' '}
+              <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
+                Accreditation & Compliance
+              </span>
+              <div className="w-32 h-1 bg-gradient-to-r from-amber-500 to-yellow-500 mx-auto mt-8"></div>
+            </h2>
+            <p className="text-xl text-amber-100 max-w-3xl mx-auto">
+              Our Migration Agents are registered with the Migration Agents Registration Authority and meet ongoing professional development requirements In addition to meeting the required education and other requirements to be registered in Australia, we must continue to adhere to the{' '}
+              <a href="#" className="text-amber-300 hover:text-amber-400 transition-colors font-semibold">
+                Migration Agents Code of Conduct
+              </a>
+            </p>
 
-      {/* Blog Section */}
-      <section id="blog" className="py-20 relative">
+
+            
+</div>
+
+
+          </div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Image 1 */}
+      <div
+        className="group relative overflow-hidden rounded-2xl transform hover:-translate-y-2 transition-all duration-500"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div className="relative h-80 overflow-hidden rounded-2xl">
+          <img
+            src={image2}
+            alt="Visa Approval Celebration"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+           
+         
+        </div>
+       
+        
+        
+      </div>
+
+      {/* Image 2 */}
+      <div
+        className="group relative overflow-hidden rounded-2xl transform hover:-translate-y-2 transition-all duration-500"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        <div className="relative h-80 overflow-hidden rounded-2xl">
+          <img
+            src={image3}
+            alt="University Admission Success"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+         
+         
+        </div>
+       
+        
+        
+      </div>
+
+      {/* Image 3 */}
+      <div
+        className="group relative overflow-hidden rounded-2xl transform hover:-translate-y-2 transition-all duration-500"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
+        <div className="relative h-80 overflow-hidden rounded-2xl">
+          <img
+            src={image4}
+            alt="Work Permit Success"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+         
+          {/* Overlay Content */}
+         
+        </div>
+       
+        {/* Floating Badge */}
+       
+      </div>
+    </div>
+
+   
+   
+    
+  </div>
+</section>
+      {/* Branches & Contact Info Section */}
+      <section className="py-20 relative bg-gradient-to-b from-gray-900 to-gray-800">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16" data-aos="fade-up">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 px-4 py-2 rounded-full border border-amber-600/30 mb-4">
-              <BookOpen className="w-4 h-4 text-amber-400" />
-              <span className="text-amber-300 text-sm">LATEST INSIGHTS</span>
+              <MapPin className="w-4 h-4 text-amber-400" />
+              <span className="text-amber-300 text-sm">OUR BRANCHES</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Immigration{' '}
+              Global Presence{' '}
               <span className="bg-gradient-to-r from-amber-300 to-yellow-300 bg-clip-text text-transparent">
-                Knowledge Hub
+                & Support
               </span>
             </h2>
+            <p className="text-xl text-amber-100 max-w-3xl mx-auto">
+              We're here to serve you across continents with dedicated teams in multiple time zones
+            </p>
+            <div className="w-32 h-1 bg-gradient-to-r from-amber-500 to-yellow-500 mx-auto mt-8"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {blogs.map((blog, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20 hover:border-amber-500/50 transition-all transform hover:-translate-y-2"
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <div className="px-3 py-1 bg-gradient-to-r from-amber-600/90 to-yellow-600/90 rounded-full text-sm font-semibold">
-                      {blog.category}
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Australia Branch */}
+            <div
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20 hover:border-amber-500/50 transition-all transform hover:-translate-y-2"
+              data-aos="fade-right"
+            >
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-full blur-lg opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                    <div className="relative p-3 bg-gradient-to-br from-gray-900 to-gray-800 rounded-full border border-amber-600/30">
+                      <span className="text-2xl">🇦🇺</span>
                     </div>
                   </div>
-                  <div className="absolute bottom-4 left-4">
-                    <div className="text-3xl font-bold text-white">{blog.date.day}</div>
-                    <div className="text-amber-300 text-sm">{blog.date.month}</div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">Australia Branch</h3>
+                    <p className="text-amber-300 text-sm">(by appointment only)</p>
                   </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-amber-300 transition-colors">
-                    {blog.title}
-                  </h3>
-                  <div className="flex items-center justify-between text-sm text-amber-100/70 mb-4">
-                    <span>By {blog.author}</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {blog.readTime} read
-                    </span>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Address</h4>
+                      <p className="text-amber-100/80 leading-relaxed">
+                        2/80 Montana Cct, Logan Reserve,<br />
+                        QLD - 4133, Australia
+                      </p>
+                    </div>
                   </div>
-                  <button className="w-full py-3 bg-gradient-to-r from-amber-600/20 to-yellow-600/20 hover:from-amber-600/30 hover:to-yellow-600/30 rounded-lg border border-amber-600/30 hover:border-amber-500/50 transition-all font-medium">
-                    Read Article →
-                  </button>
+
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Phone</h4>
+                      <p className="text-amber-100">+61 412 141 111</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-amber-400 mt=1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Email</h4>
+                      <p className="text-amber-100">enquiries@assistvisaandmigration.com</p>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 border-t border-amber-600/20">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-600/20 to-yellow-600/10 rounded-full">
+                      <Clock className="w-4 h-4 text-amber-400" />
+                      <span className="text-amber-300 text-sm">By Appointment Only</span>
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* India Branch */}
+            <div
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20 hover:border-amber-500/50 transition-all transform hover:-translate-y-2"
+              data-aos="fade-left"
+            >
+              <div className="p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-600 to-yellow-600 rounded-full blur-lg opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                    <div className="relative p-3 bg-gradient-to-br from-gray-900 to-gray-800 rounded-full border border-amber-600/30">
+                      <span className="text-2xl">🇮🇳</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white">India Branch</h3>
+                    <p className="text-amber-300 text-sm">(by walk-in)</p>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Address</h4>
+                      <p className="text-amber-100/80 leading-relaxed">
+                        SCO 103, 3rd Floor, District Shopping Complex,<br />
+                        B Block, Ranjit Avenue,<br />
+                        Amritsar, Punjab, India
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Phone</h4>
+                      <p className="text-amber-100">+91 92169 50100</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-5 h-5 text-amber-400 mt=1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-white mb-1">Email</h4>
+                      <p className="text-amber-100">info@assistvisaandmigration.com</p>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 border-t border-amber-600/20">
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center p-3 bg-gradient-to-br from-amber-600/10 to-yellow-600/5 rounded-xl border border-amber-600/20">
+                        <h4 className="font-semibold text-white mb-1">Mon - Fri</h4>
+                        <p className="text-amber-300 text-sm">9am – 5pm</p>
+                      </div>
+                      <div className="text-center p-3 bg-gradient-to-br from-amber-600/10 to-yellow-600/5 rounded-xl border border-amber-600/20">
+                        <h4 className="font-semibold text-white mb-1">Sat – Sun</h4>
+                        <p className="text-amber-300 text-sm">By Appointment Only</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+
         </div>
       </section>
+
+      <TestimonialsSection />
+
+
 
       {/* Contact Section */}
       <section id="contact" className="py-20 relative bg-gradient-to-b from-gray-800 to-gray-900">
@@ -726,7 +921,7 @@ const SkyBeatImmigration = () => {
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div 
+            <div
               className="relative p-8 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20"
               data-aos="fade-right"
             >
@@ -814,18 +1009,18 @@ const SkyBeatImmigration = () => {
             <div className="space-y-8" data-aos="fade-left">
               <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20">
                 <h3 className="text-2xl font-bold text-white mb-6">Contact Information</h3>
-                
+
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl">
                       <MapPin className="w-6 h-6 text-amber-400" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white mb-2">Canada Office</h4>
+                      <h4 className="font-bold text-white mb-2">Australia Branch (by Appointment Only)</h4>
                       <p className="text-amber-100/70">
-                        42 Regan Road, Unit-7<br />
-                        Brampton, ON, Canada<br />
-                        L7A 1A8
+                        2/80 Montana Cct, <br />
+                        Logan Reserve, QLD - 4133,Australia<br />
+
                       </p>
                     </div>
                   </div>
@@ -835,11 +1030,11 @@ const SkyBeatImmigration = () => {
                       <MapPin className="w-6 h-6 text-amber-400" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white mb-2">India Office</h4>
+                      <h4 className="font-bold text-white mb-2">India Office (by walk-in)</h4>
                       <p className="text-amber-100/70">
-                        SCO 86, 2nd Floor City Center<br />
-                        Market Near Bus Stand<br />
-                        Amritsar, Punjab, India
+                        SCO 103,3rd Floor,District <br />
+                        Shopping Complex,B Block,Ranjit Avenue,<br />
+                        Amritsar,Punjab ,India
                       </p>
                     </div>
                   </div>
@@ -851,8 +1046,8 @@ const SkyBeatImmigration = () => {
                     <div>
                       <h4 className="font-bold text-white mb-2">Phone Numbers</h4>
                       <div className="space-y-2">
-                        <p className="text-amber-100">Canada: <span className="font-semibold">+1 (416) 997-3031</span></p>
-                        <p className="text-amber-100">India: <span className="font-semibold">+91 90026-40026</span></p>
+                        <p className="text-amber-100">Canada: <span className="font-semibold">+61 412 141 111</span></p>
+                        <p className="text-amber-100">India: <span className="font-semibold">+91 92169 50100</span></p>
                       </div>
                     </div>
                   </div>
@@ -862,10 +1057,20 @@ const SkyBeatImmigration = () => {
                       <MailIcon className="w-6 h-6 text-amber-400" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-white mb-2">Email</h4>
-                      <p className="text-amber-100">skybeatimmigration@gmail.com</p>
+                      <h4 className="font-bold text-white mb-2">Australian Email</h4>
+                      <p className="text-amber-100">enquiries@assitvisaandmigration.com</p>
                     </div>
                   </div>
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 rounded-xl">
+                      <MailIcon className="w-6 h-6 text-amber-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white mb-2">Indian Email</h4>
+                      <p className="text-amber-100">info@assistvisaandmigration.com</p>
+                    </div>
+                  </div>
+
                 </div>
 
                 {/* Social Links */}
@@ -887,15 +1092,15 @@ const SkyBeatImmigration = () => {
 
               {/* Office Hours */}
               <div className="p-8 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-amber-600/20">
-                <h3 className="text-2xl font-bold text-white mb-4">Office Hours</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">Office Hours (Australia Branch)</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
                     <span className="text-amber-100">Monday - Friday</span>
-                    <span className="text-amber-300 font-semibold">9:00 AM - 7:00 PM</span>
+                    <span className="text-amber-300 font-semibold">9:00 AM - 5:00 PM</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-amber-100">Saturday</span>
-                    <span className="text-amber-300 font-semibold">10:00 AM - 5:00 PM</span>
+                    <span className="text-amber-300 font-semibold">By Appointment</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-amber-100">Sunday</span>
@@ -908,7 +1113,7 @@ const SkyBeatImmigration = () => {
         </div>
       </section>
 
-    <Footer/>
+      <Footer />
 
       {/* Floating WhatsApp */}
       <a
